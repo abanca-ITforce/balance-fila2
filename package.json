@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve -o --port=4212",
+    "build": "ng build --prod --baseHref=/dist/ab-balance/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
