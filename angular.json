@@ -140,8 +140,13 @@
               "devServerTarget": "ab-balance:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ab-balance"
 }
