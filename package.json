@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve -o --port=4212",
     "build": "ng build --prod --baseHref=/dist/ab-balance/",
+    "deploy": "ng deploy --baseHref=/balance-fila2/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
