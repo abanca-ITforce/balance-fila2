@@ -6,7 +6,9 @@ import { MainContentComponent } from './layout/main-content/main-content.compone
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'main-content', component: MainContentComponent}
+  {path: 'main-content', component: MainContentComponent},
+  { path: 'new-movement', loadChildren: () => import('./new-movement/new-movement.module').then(m => m.NewMovementModule) },
+  { path: 'movements', loadChildren: () => import('./movements/movements.module').then(m => m.MovementsModule) }
 ];
 
 @NgModule({
