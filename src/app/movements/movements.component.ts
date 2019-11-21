@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movements.component.css']
 })
 export class MovementsComponent implements OnInit {
-
+  movements = ['Compra super', 'Curso Angular', 'Cañas pablo'];
   constructor() { }
 
   ngOnInit() {

@@ -1,1 +1,5 @@
-<p>movements works!</p>
+<h1>Ultimos movimientos</h1>
+<ul>
+  <li *ngFor="let movement of movements" routerLink="{{ movement }}">{{ movement }}</li>
+  <!-- <li routerLink="super">super</li> -->
+</ul>
