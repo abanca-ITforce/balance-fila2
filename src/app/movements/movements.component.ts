@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movements.component.css']
 })
 export class MovementsComponent implements OnInit {
-  movements = ['Compra super', 'Curso Angular', 'Cañas pablo'];
+  movements = [
+    {id: 'super', description: 'Compra super'},
+    {id: 'angular', description: 'Curso Angular'},
+    {id: 'vacaciones', description: 'Vacaciones'}
+  ];
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
+
 
 }

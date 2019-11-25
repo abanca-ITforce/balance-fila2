@@ -1,5 +1,23 @@
-<h1>Ultimos movimientos</h1>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon>assignment_turned_in</mat-icon>
+    </div>
+    <mat-card-title>Last Activities</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-list role="list">
+      <ng-container *ngFor="let movement of movements">
+        <mat-list-item [routerLink]="movement.id">{{ movement.description }}</mat-list-item>
+        <mat-divider></mat-divider>
+      </ng-container>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+<!-- <h1>Ultimos movimientos</h1>
 <ul>
   <li *ngFor="let movement of movements" routerLink="{{ movement }}">{{ movement }}</li>
-  <!-- <li routerLink="super">super</li> -->
-</ul>
+  <li routerLink="super">super</li>
+</ul> -->
