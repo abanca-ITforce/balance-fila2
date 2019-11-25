@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'ab-movement',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovementComponent implements OnInit {
 
-  constructor() { }
+  movementTitle: string;
+  constructor(activatedRoute: ActivatedRoute) {
+    this.movementTitle = activatedRoute.snapshot.params.id;
+   }
 
   ngOnInit() {
   }
