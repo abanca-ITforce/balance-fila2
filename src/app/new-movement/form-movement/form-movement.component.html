@@ -8,8 +8,11 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Concept" formControlName="concept">
-            <mat-error *ngIf="movementForm.controls['concept'].hasError('required')">
+            <mat-error *ngIf="hasError('concept', 'required')">
               Concept is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="hasError('concept', 'minlength')">
+              Concept is <strong>too short</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -19,8 +22,11 @@
           <mat-form-field class="full-width">
             <input matInput placeholder="Amount" formControlName="amount" type="number">
             <span matPrefix>€&nbsp;</span>
-            <mat-error *ngIf="movementForm.controls['amount'].hasError('required')">
+            <mat-error *ngIf="hasError('amount', 'required')">
               Amount is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="hasError('amount', 'min')">
+              Minimun amount is <strong> {{ minAmount }} € </strong>
             </mat-error>
           </mat-form-field>
         </div>

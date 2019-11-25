@@ -15,10 +15,12 @@ export class FormMovementComponent {
     type: 'income'
   }
 
+  minAmount: number = 0.01;
+
   constructor( fb: FormBuilder) {
     this.movementForm = fb.group({
       concept: [this.movement.concept, [Validators.required, Validators.minLength(6)]],
-      amount: [this.movement.amount, [Validators.required, Validators.min(1)]],
+      amount: [this.movement.amount, [Validators.required, Validators.min(this.minAmount)]],
       dueDate: [this.movement.dueDate, Validators.required],
       type: [this.movement.type, Validators.required]
     });
