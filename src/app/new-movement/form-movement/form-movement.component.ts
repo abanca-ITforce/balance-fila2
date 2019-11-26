@@ -14,6 +14,10 @@ export class FormMovementComponent {
 
   minAmount: number = 0.01;
 
+  incomesArray = ['Sueldo', 'Cobro deudas', 'Venta organos'];
+  expendituresArray = ['Cañas', 'Hipoteca', 'Luz y agua'];
+  states = this.incomesArray;
+
   constructor(
     fb: FormBuilder,
     private movementsList: MovementsService,
@@ -23,8 +27,18 @@ export class FormMovementComponent {
       concept: [this.movement.concept, [Validators.required, Validators.minLength(6)]],
       amount: [this.movement.amount, [Validators.required, Validators.min(this.minAmount)]],
       dueDate: [this.movement.dueDate, [ Validators.required, movementValidatorService.dateFormat]],
-      type: [this.movement.type, Validators.required]
+      type: [this.movement.type, Validators.required],
+      selectType: [ this.movement.selectType, [ ]]
     });
+  }
+
+  changeSelector() {
+     this.movement.selectType = !this.movement.selectType;
+     if (this.movement.selectType){
+       this.states = this.incomesArray;
+     } else {
+        this.states = this.expendituresArray;
+     }
   }
 
   onSubmit() {

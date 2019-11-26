@@ -27,7 +27,8 @@ export class MovementsService {
       concept: '',
       amount: 1,
       dueDate: '',
-      type: 'income'
+      type: 'income',
+      selectType: true
     };
   }
 

@@ -42,29 +42,22 @@
               Due date is <strong>required</strong>
             </mat-error>
             <mat-error *ngIf="hasError('dueDate','dateFormat')">
-
-            <!-- <mat-error *ngIf="movementForm.controls['dueDate'].hasError('dateFormat')"> -->
              {{ movementForm.controls['dueDate'].errors.dateFormat}}
             </mat-error>
           </mat-form-field>
         </div>
-        <!-- <div class="col">
           <mat-form-field class="full-width">
             <mat-select placeholder="State" formControlName="state">
-              <mat-option *ngFor="let state of states" [value]="state.abbreviation">
-                {{ state.name }}
+              <mat-option *ngFor="let state of states" [value]="state">
+                {{ state }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="movementForm.controls['state'].hasError('required')">
-              State is <strong>required</strong>
-            </mat-error>
           </mat-form-field>
-        </div>-->
       </div>
       <div class="row">
         <div class="col">
-          <mat-radio-group formControlName="type">
-            <mat-radio-button value="income">Income</mat-radio-button>
+          <mat-radio-group formControlName="type" (change) = "changeSelector()" >
+            <mat-radio-button value ="income">Income</mat-radio-button>
             <mat-radio-button value="expenditure">Expenditure</mat-radio-button>
           </mat-radio-group>
         </div>
