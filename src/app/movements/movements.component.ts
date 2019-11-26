@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovementsService } from '../movements.service';
 
 @Component({
   selector: 'ab-movements',
@@ -6,13 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movements.component.css']
 })
 export class MovementsComponent implements OnInit {
-  movements = [
-    {id: 'super', description: 'Compra super'},
-    {id: 'angular', description: 'Curso Angular'},
-    {id: 'vacaciones', description: 'Vacaciones'}
-  ];
+  movements = this.movementsService.movementList;
 
-  constructor() { }
+  constructor(private movementsService: MovementsService) { }
 
   ngOnInit() {}
 

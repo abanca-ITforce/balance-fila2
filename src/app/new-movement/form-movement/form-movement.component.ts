@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+import { MovementsService } from 'src/app/movements.service';
 
 @Component({
   selector: 'ab-form-movement',
@@ -8,16 +9,11 @@ import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 })
 export class FormMovementComponent {
   movementForm: FormGroup;
-  private movement= {
-    concept: '',
-    amount: 1,
-    dueDate: '',
-    type: 'income'
-  }
+  private movement = this.movementsList.getNew();
 
   minAmount: number = 0.01;
 
-  constructor( fb: FormBuilder) {
+  constructor( fb: FormBuilder, private movementsList: MovementsService) {
     this.movementForm = fb.group({
       concept: [this.movement.concept, [Validators.required, Validators.minLength(6)]],
       amount: [this.movement.amount, [Validators.required, Validators.min(this.minAmount)]],
@@ -26,7 +22,9 @@ export class FormMovementComponent {
     });
   }
 
-  onSubmit() {}
+  onSubmit() {
+    this.movementsList.submitMovement(this.movementForm.value);
+  }
 
   hasErrors(controlName: string){
     return this.movementForm.controls[controlName].invalid;

@@ -9,7 +9,7 @@
   <mat-card-content>
     <mat-list role="list">
       <ng-container *ngFor="let movement of movements">
-        <mat-list-item [routerLink]="movement.id">{{ movement.description }}</mat-list-item>
+        <mat-list-item [routerLink]="movement.concept">{{ movement.concept }}</mat-list-item>
         <mat-divider></mat-divider>
       </ng-container>
     </mat-list>
