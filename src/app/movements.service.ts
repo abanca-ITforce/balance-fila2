@@ -19,7 +19,7 @@ export class MovementsService {
 
   submitMovement(movement) {
     this.movementList.push(movement);
-    localStorage.setItem('movementList', JSON.stringify(movement.value));
+    localStorage.setItem('movementList', JSON.stringify(this.movementList));
   }
 
   getNew() {
