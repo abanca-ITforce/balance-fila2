@@ -38,8 +38,13 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Due date" formControlName="dueDate">
-            <mat-error *ngIf="movementForm.controls['dueDate'].hasError('required')">
+            <mat-error *ngIf="hasError('dueDate','required')">
               Due date is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="hasError('dueDate','dateFormat')">
+
+            <!-- <mat-error *ngIf="movementForm.controls['dueDate'].hasError('dateFormat')"> -->
+             {{ movementForm.controls['dueDate'].errors.dateFormat}}
             </mat-error>
           </mat-form-field>
         </div>

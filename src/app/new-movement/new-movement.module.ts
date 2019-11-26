@@ -11,6 +11,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { MovementValidatorService } from './movement-validator.service';
 
 
 
@@ -26,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     ReactiveFormsModule,
     MatIconModule
-  ]
+  ],
+  providers:[MovementValidatorService]
 })
 export class NewMovementModule { }
