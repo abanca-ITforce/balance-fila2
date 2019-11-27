@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { find } from 'rxjs/operators';
+import { FormMovementComponent } from './new-movement/form-movement/form-movement.component';
+import { MovementValidatorService } from './new-movement/movement-validator.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class MovementsService {
+  incomesArray = ['Sueldo', 'Cobro deudas', 'Venta organos'];
+  expendituresArray = ['Cañas', 'Hipoteca', 'Luz y agua'];
+  states = this.incomesArray;
 
   movementList: any[];
 
@@ -40,5 +45,18 @@ export class MovementsService {
       selectType: true
     };
   }
+  changeSelector(movement) {
+    movement.selectType = !movement.selectType;
+    if (movement.selectType){
+      this.states = this.incomesArray;
+    } else {
+       this.states = this.expendituresArray;
+    }
+    console.log(this.states);
+ }
+ getStates() {
+   console.log(this.states);
+   return this.states;
+ }
 
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MovementsService } from 'src/app/movements.service';
 import { MovementValidatorService } from '../movement-validator.service';
@@ -14,9 +14,10 @@ export class FormMovementComponent {
 
   minAmount: number = 0.01;
 
-  incomesArray = ['Sueldo', 'Cobro deudas', 'Venta organos'];
-  expendituresArray = ['Cañas', 'Hipoteca', 'Luz y agua'];
-  states = this.incomesArray;
+
+  // states = this.incomesArray;
+  @Input() states;
+  // @Input()
 
   constructor(
     fb: FormBuilder,
@@ -31,15 +32,20 @@ export class FormMovementComponent {
       selectType: [ this.movement.selectType, [ ]]
     });
   }
+  @Output() option = new EventEmitter<any>();
 
   changeSelector() {
-     this.movement.selectType = !this.movement.selectType;
-     if (this.movement.selectType){
-       this.states = this.incomesArray;
-     } else {
-        this.states = this.expendituresArray;
-     }
+    this.option.emit(this.movement);
   }
+
+  // changeSelector() {
+  //    this.movement.selectType = !this.movement.selectType;
+  //    if (this.movement.selectType){
+  //      this.states = this.incomesArray;
+  //    } else {
+  //       this.states = this.expendituresArray;
+  //    }
+  // }
 
   onSubmit() {
     this.movementsList.submitMovement(this.movementForm.value);
