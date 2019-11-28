@@ -48,10 +48,16 @@ export class MovementsService {
     localStorage.setItem('movementList', JSON.stringify(this.movementList));
   }
 
-  getMovementById(id: string){
-    const found = this.movementList.find(m => m.id == id);
-    console.log(found);
-    return found;
+  // getMovementById(id: string){
+  //   const found = this.movementList.find(m => m.id == id);
+  //   console.log(found);
+  //   return found;
+  // }
+
+  getTaskById$(id) {
+    return this.http
+      .get<any>(this.url + '/' + id)
+      .pipe(map(data => (data ? data : {})));
   }
 
   getNew() {

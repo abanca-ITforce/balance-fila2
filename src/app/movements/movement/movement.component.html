@@ -1,10 +1,10 @@
-<mat-card class="example-card">
+<mat-card class="example-card" *ngIf="movement$ | async as movement">
     <mat-card-header>
       <div mat-card-avatar>
         <mat-icon>assignment</mat-icon>
       </div>
       <mat-card-title>{{ movement.concept | uppercase }}</mat-card-title>
-      <mat-card-subtitle>{{movementTitle}}</mat-card-subtitle>
+      <mat-card-subtitle>{{movement.dueDate}}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>

@@ -11,12 +11,12 @@ import { MovementsService } from 'src/app/movements.service';
 export class MovementComponent implements OnInit {
 
   movementTitle: string;
-  movement;
+  movement$;
 
   constructor(activatedRoute: ActivatedRoute, movementsService: MovementsService) {
-    this.movementTitle = activatedRoute.snapshot.params.id;
-    this.movement = movementsService.getMovementById(this.movementTitle);
-    console.log(this.movement);
+    const movementId = activatedRoute.snapshot.params.id;
+    this.movement$ = movementsService.getTaskById$(movementId);
+    console.log(this.movement$);
    }
 
   ngOnInit() {
