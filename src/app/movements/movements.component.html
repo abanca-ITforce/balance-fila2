@@ -7,7 +7,7 @@
   </mat-card-header>
 
   <mat-card-content>
-    <mat-list role="list">
+    <mat-list role="list" *ngIf="movementList$ | async as movements; else empty">
       <ng-container *ngFor="let movement of movements">
         <mat-list-item [routerLink]="movement.id">{{ movement.concept }}</mat-list-item>
         <mat-divider></mat-divider>
@@ -15,6 +15,9 @@
     </mat-list>
   </mat-card-content>
 </mat-card>
+<ng-template #empty>
+  <h1> CARGANDO ...</h1>
+</ng-template>
 
 <!-- <h1>Ultimos movimientos</h1>
 <ul>

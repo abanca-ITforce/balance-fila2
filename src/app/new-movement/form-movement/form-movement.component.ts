@@ -48,7 +48,7 @@ export class FormMovementComponent {
   // }
 
   onSubmit() {
-    this.movementsList.submitMovement(this.movementForm.value);
+    this.movementsList.postMovements(this.movementForm.value);
   }
 
   hasErrors(controlName: string) {
